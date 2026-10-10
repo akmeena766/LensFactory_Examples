@@ -1,0 +1,47 @@
+observation:
+  modeler: LensFactory
+  lens: Hera
+  z_d: 0.507
+  reference: [0.0, 0.0]
+  pixel_scale: 0.05
+  FOV: [200, 200]
+
+
+cosmology:
+  H0: 72.0
+  Omega_m0: 0.24
+  Omega_r0: 0.00
+  Omega_w0: 0.76
+
+
+source:
+  from_file: true
+  source_file: source.txt
+
+
+lens_model:
+  method: MaxEnt
+  multiplane: false
+  total_lenses: 1
+  lens1:
+    lens: MultiPixelLens
+    pixel_size: 0.4
+    
+
+sampling:
+  scheme: SourcePlane
+  verbose: true
+  optimizer:
+    enabled: true
+    convergence:
+      run_mode: random
+      max_runs: 10000
+      tolerance: 0.1
+    NM:
+      max_iter: 100000
+      tolerance: 1e-6
+  mcmc:
+    enabled: true
+    AIES:
+      n_chains: 32
+      n_steps: 100000
