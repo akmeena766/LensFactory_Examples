@@ -3,7 +3,7 @@ using JLD2
 using GLMakie
 
 # Read the JLD2 file
-jldopen("galaxy_2026-07-11.jld2", "r") do data
+jldopen("MockLens_20261014.jld2", "r") do data
    # Read data
    model = data["model"]
    optimizer = data["optimizer"]

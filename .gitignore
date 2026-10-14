@@ -3,7 +3,7 @@
 
 *.so
 *.c
-
+*.jld2
 *.png
 *.jpeg
 *.mp4
