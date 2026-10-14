@@ -16,16 +16,21 @@ cosmology:
 
 source:
   from_file: true
-  source_file: source.txt
+  source_file: HERA_images.txt
 
 
 lens_model:
   method: MaxEnt
   multiplane: false
   total_lenses: 1
+  alpha: 1.0
   lens1:
     lens: MultiPixelLens
-    pixel_size: 0.4
+    FOV: [200, 200]
+    pixel_scale: 0.8
+    default_map:
+      type: uniform
+      value: 0.5
     
 
 sampling:
@@ -33,15 +38,13 @@ sampling:
   verbose: true
   optimizer:
     enabled: true
-    convergence:
-      run_mode: random
-      max_runs: 10000
-      tolerance: 0.1
-    NM:
-      max_iter: 100000
+    MaxEnt:
+      n_runs: 1
+      save_runs: true
+      save_path: ./HERA_runs/
+      refine: true
+      refine_rounds: 1
+      refine_factor: 2
+    LBFGS:
+      iterations: 100000
       tolerance: 1e-6
-  mcmc:
-    enabled: true
-    AIES:
-      n_chains: 32
-      n_steps: 100000
