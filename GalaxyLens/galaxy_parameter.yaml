@@ -28,6 +28,7 @@ source:
       parity: [+1, +1, +1, +1]
 
 lens_model:
+  method: Parametric
   multiplane: false
   total_lenses: 1
   lens1:
@@ -50,12 +51,12 @@ sampling:
   verbose: true
   optimizer:
     enabled: true
-    convergence:
+    Parametric:
       run_mode: random
-      max_runs: 10000
+      n_runs: 10000
       tolerance: 1E-2
     NM:
-      max_iter: 100000
+      iterations: 100000
       tolerance: 1e-6
   mcmc:
     enabled: true
