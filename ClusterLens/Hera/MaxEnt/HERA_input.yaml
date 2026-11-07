@@ -27,7 +27,7 @@ lens_model:
   lens1:
     lens: MultiPixelLens
     FOV: [200, 200]
-    pixel_scale: 0.8
+    pixel_scale: 0.5
     default_map:
       type: uniform
       value: 0.5
@@ -39,7 +39,7 @@ sampling:
   optimizer:
     enabled: true
     MaxEnt:
-      n_runs: 1
+      n_runs: 100
       save_runs: true
       save_path: ./HERA_runs/
       smoothing: 2.0
