@@ -3,7 +3,7 @@ using LensFactory
 using GLMakie
 
 # Read the JLD2 file
-jldopen("Hera_20261107.jld2", "r") do data
+jldopen("Hera_20261108.jld2", "r") do data
    # Read data
    model = data["model"]
    optimizer = data["optimizer"]
@@ -13,9 +13,9 @@ jldopen("Hera_20261107.jld2", "r") do data
    best_model, _ = LensModel.get_best_model(model, optimizer)
    # println(best_model)
    
-   LensModel.get_best_fit_rms(model, optimizer.κ)
+   LensModel.get_best_fit_rms(model, optimizer.kappa)
 	
-	# for i in 1:19
-	# 	fig = LensModel.plot_best_model(model, chains, logL; source=i, plot_name="$i.png")
-	# end
+	for i in 1:19
+		fig = LensModel.plot_best_model(model, optimizer; source=i, plot_name="$i.png")
+	end
 end
